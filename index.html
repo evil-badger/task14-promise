@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const greeting = "Привет - чутка опоздал, сорян, но я выполнил обещание!"
+                resolve(greeting);
+            }, 3000);
+        });
+    console.log('Привет');
+    promise .then(result => console.log(`${result}`));
+    //----------------------------------------------------------------
+    function getRandomInRange(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+    const promiseDigit = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let digit = getRandomInRange(0,10);
+            if (digit%2==0) {
+                resolve(digit);
+            }
+            reject(digit);
+        }, 3000);
+    });
+
+    promiseDigit
+    .then(result => console.log(`Это число ${result} четное`))
+    .catch(result => console.log(`Это число ${result} нечетное`));
+
+    </script>
+</body>
+</html>
