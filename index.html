@@ -35,6 +35,14 @@
     .then(result => console.log(`Это число ${result} четное`))
     .catch(result => console.log(`Это число ${result} нечетное`));
 
+
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    (async () => {
+        console.log('first call');
+        await delay(4000);
+        console.log('second call');
+    })();
+
     </script>
 </body>
 </html>
